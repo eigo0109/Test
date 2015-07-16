@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthCodeVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-OW-InF">
+                    <rect key="frame" x="0.0" y="98" width="375" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信中的验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Br9-pE-PY1">
+                            <rect key="frame" x="15" y="13" width="154" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Pl-Zz-55S" userLabel="line">
+                            <rect key="frame" x="276" y="5" width="1" height="35"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="302-hy-opB"/>
+                                <constraint firstAttribute="width" constant="1" id="dmm-n4-w7c"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpW-KJ-Cmn">
+                            <rect key="frame" x="291" y="8" width="70" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="发送验证码">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="Br9-pE-PY1" secondAttribute="centerX" id="0ky-dj-3kg"/>
+                        <constraint firstItem="wpW-KJ-Cmn" firstAttribute="top" secondItem="VdO-OW-InF" secondAttribute="top" constant="8" id="Ap2-Dx-iPy"/>
+                        <constraint firstAttribute="width" secondItem="VdO-OW-InF" secondAttribute="height" multiplier="25:3" id="BSd-Hx-LDv"/>
+                        <constraint firstItem="0Pl-Zz-55S" firstAttribute="leading" secondItem="Br9-pE-PY1" secondAttribute="trailing" constant="107" id="Erc-ZS-3NX"/>
+                        <constraint firstItem="0Pl-Zz-55S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Br9-pE-PY1" secondAttribute="trailing" constant="8" id="FMm-up-sNj"/>
+                        <constraint firstItem="Br9-pE-PY1" firstAttribute="leading" secondItem="VdO-OW-InF" secondAttribute="leading" constant="15" id="Ifs-rH-NMo"/>
+                        <constraint firstAttribute="centerY" secondItem="wpW-KJ-Cmn" secondAttribute="centerY" id="Xsh-1k-gqg"/>
+                        <constraint firstItem="wpW-KJ-Cmn" firstAttribute="leading" secondItem="0Pl-Zz-55S" secondAttribute="trailing" constant="14" id="XxY-At-RT9"/>
+                        <constraint firstAttribute="trailing" secondItem="wpW-KJ-Cmn" secondAttribute="trailing" constant="14" id="YTY-k7-F7u"/>
+                        <constraint firstAttribute="centerY" secondItem="0Pl-Zz-55S" secondAttribute="centerY" id="jvb-b7-MD4"/>
+                        <constraint firstAttribute="centerY" secondItem="Br9-pE-PY1" secondAttribute="centerY" id="sGY-uc-jmI"/>
+                        <constraint firstAttribute="centerX" secondItem="0Pl-Zz-55S" secondAttribute="centerX" id="yZT-MZ-7X0"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0ky-dj-3kg"/>
+                            <exclude reference="Erc-ZS-3NX"/>
+                            <exclude reference="yZT-MZ-7X0"/>
+                            <exclude reference="Ap2-Dx-iPy"/>
+                        </mask>
+                    </variation>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入短信中的验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIe-xN-L3n">
+                    <rect key="frame" x="15" y="74" width="120" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nr5-UR-sFW">
+                    <rect key="frame" x="10" y="163" width="355" height="45"/>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="17"/>
+                    <state key="normal" title="下一步" backgroundImage="long_btn_red"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="nr5-UR-sFW" firstAttribute="top" secondItem="VdO-OW-InF" secondAttribute="bottom" constant="20" id="62l-9k-PoT"/>
+                <constraint firstItem="UIe-xN-L3n" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="7wK-6V-02T"/>
+                <constraint firstAttribute="trailing" secondItem="nr5-UR-sFW" secondAttribute="trailing" constant="10" id="DfC-7G-Eqf"/>
+                <constraint firstAttribute="trailing" secondItem="VdO-OW-InF" secondAttribute="trailing" id="Jv2-Q1-n8T"/>
+                <constraint firstItem="UIe-xN-L3n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="VW4-Wh-OHI"/>
+                <constraint firstItem="VdO-OW-InF" firstAttribute="top" secondItem="UIe-xN-L3n" secondAttribute="bottom" constant="10" id="Wa4-l5-G9A"/>
+                <constraint firstItem="VdO-OW-InF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X0d-9a-Z9H"/>
+                <constraint firstItem="nr5-UR-sFW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="tNu-iu-YSL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="long_btn_red" width="355" height="45"/>
+    </resources>
+</document>

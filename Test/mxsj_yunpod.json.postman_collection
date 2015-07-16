@@ -1,0 +1,834 @@
+{
+	"id": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+	"name": "mxsj_yunpod",
+	"description": "",
+	"order": [
+		"24851398-055c-7aec-5ae1-b47f61920a64",
+		"9f5e3688-ca48-a9f0-dcc6-2fd4c1d594ae",
+		"6b134c36-a0a9-5395-d439-dd7c4daa17fb",
+		"053894a9-180d-0c7c-4be6-84433bab89dd",
+		"1907c8f3-d14c-edf0-16b4-3ace9ec399f7",
+		"cf56bb43-01d4-f49d-09f6-cf00f4bd1028",
+		"bb60e92d-b2e2-e942-7792-8ce81c952cca",
+		"6f66e023-ffaf-f4db-5e71-bdebf6f54f85",
+		"523e870f-3912-96e4-3dab-6afd37ad57c5",
+		"110b5ac4-9ce8-f4a8-3b5a-5ffbf02ee22b",
+		"ddcf134d-961c-2d57-6eae-2f3d18a9db9d",
+		"5c566f0b-d221-6eba-a9bb-2ed02c12e89d",
+		"328d84cf-b8da-2e35-8ba1-11e42e62bf08",
+		"5232320a-52e9-63e2-cdeb-d874f27ee1b0",
+		"a3f71647-299e-1c05-7399-8973a1377572",
+		"82a966f0-ff12-a20d-75c2-d1f13bf36e2c",
+		"3eef8568-d400-3cb3-413d-c6e940101d99",
+		"e15ff617-45e2-16d0-c09a-e47289f85769",
+		"e9d05a3b-27ad-7329-bc88-521eb0c215f3",
+		"cd177fc2-29c8-c716-9af2-f6c1f78e76e6",
+		"ac1764c9-73b6-97ee-7c19-528a55706cd5"
+	],
+	"folders": [],
+	"timestamp": 0,
+	"owner": "68564",
+	"remoteLink": null,
+	"public": false,
+	"requests": [
+		{
+			"id": "053894a9-180d-0c7c-4be6-84433bab89dd",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/login",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mobile",
+					"value": "13588046226",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ios_client_id",
+					"value": "222222222222",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435841824222,
+			"name": "用户登录",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b"
+		},
+		{
+			"id": "110b5ac4-9ce8-f4a8-3b5a-5ffbf02ee22b",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/address",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "FB642D9CD8AAB92D89FFAEA2D8ACE706",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "realname",
+					"value": "张三",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mobile",
+					"value": "13444444444",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "prov",
+					"value": "330000",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "city",
+					"value": "330100",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "滨江区康恩贝大厦",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "default",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435762283786,
+			"name": "添加地址",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "1907c8f3-d14c-edf0-16b4-3ace9ec399f7",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/reset_password",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mobile",
+					"value": "13588046226",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "authcode",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "new_password",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435760633433,
+			"name": "重置密码",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "24851398-055c-7aec-5ae1-b47f61920a64",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/system",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435842981073,
+			"name": "系统信息",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "328d84cf-b8da-2e35-8ba1-11e42e62bf08",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/order",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "FB642D9CD8AAB92D89FFAEA2D8ACE706",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "goods_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "count",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "payment_type",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "payment_id",
+					"value": "1111111111111",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1436093473838,
+			"name": "提交订单",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "3eef8568-d400-3cb3-413d-c6e940101d99",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream/1/goods",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1436088243748,
+			"name": "商品列表",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "5232320a-52e9-63e2-cdeb-d874f27ee1b0",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/order?user_token=9E0D233F58E1D0887A7105A43344A5A1",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "avatar",
+					"value": "2.png",
+					"type": "file",
+					"enabled": true
+				},
+				{
+					"key": "user_token",
+					"value": "9E0D233F58E1D0887A7105A43344A5A1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1436093623249,
+			"name": "订单列表",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "523e870f-3912-96e4-3dab-6afd37ad57c5",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/avatar",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "avatar",
+					"value": "2.png",
+					"type": "file",
+					"enabled": true
+				},
+				{
+					"key": "user_token",
+					"value": "FB642D9CD8AAB92D89FFAEA2D8ACE706",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435762096926,
+			"name": "上传头像",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "5c566f0b-d221-6eba-a9bb-2ed02c12e89d",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/address?user_token=FB642D9CD8AAB92D89FFAEA2D8ACE706",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435762880773,
+			"name": "获取地址",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "6b134c36-a0a9-5395-d439-dd7c4daa17fb",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/register",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mobile",
+					"value": "13588046226",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "ZExceed",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "gender",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "authcode",
+					"value": "837421",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ios_client_id",
+					"value": "1111111111111",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435841799895,
+			"name": "用户注册",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b"
+		},
+		{
+			"id": "6f66e023-ffaf-f4db-5e71-bdebf6f54f85",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "7395996C4A42161C5988A15CFE2C8A69",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "nickname",
+					"value": "ICEWINE",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "gender",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435761408100,
+			"name": "修改用户资料",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "82a966f0-ff12-a20d-75c2-d1f13bf36e2c",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream?city_id=330100&category_id=4&page&limit&detail",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1436087324803,
+			"name": "众筹列表",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "9f5e3688-ca48-a9f0-dcc6-2fd4c1d594ae",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/mobile_authcode",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "mobile",
+					"value": "13588046226",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "authcode",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435760386792,
+			"name": "验证码",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "a3f71647-299e-1c05-7399-8973a1377572",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream/apply",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "FB642D9CD8AAB92D89FFAEA2D8ACE706",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "测试项目",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "realname",
+					"value": "张三",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "contact",
+					"value": "13455555555",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "10000",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "试试看",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435843334078,
+			"name": "众筹申请",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "ac1764c9-73b6-97ee-7c19-528a55706cd5",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/follow?user_token=9E0D233F58E1D0887A7105A43344A5A1",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "avatar",
+					"value": "2.png",
+					"type": "file",
+					"enabled": true
+				},
+				{
+					"key": "user_token",
+					"value": "9E0D233F58E1D0887A7105A43344A5A1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1436095445516,
+			"name": "关注项目",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "bb60e92d-b2e2-e942-7792-8ce81c952cca",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/account",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "7395996C4A42161C5988A15CFE2C8A69",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "old_mobile",
+					"value": "13588046226",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "new_mobile",
+					"value": "13588046221",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "authcode",
+					"value": "111111",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435761358857,
+			"name": "修改账户",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "cd177fc2-29c8-c716-9af2-f6c1f78e76e6",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream/1/comment",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"data": [],
+			"dataMode": "params",
+			"name": "获取评论",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1436092376504,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "cf56bb43-01d4-f49d-09f6-cf00f4bd1028",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/password",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "EE00317B99CFCA413783C46433B71B20",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "old_password",
+					"value": "654321",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "new_password",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435761093799,
+			"name": "修改密码",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b"
+		},
+		{
+			"id": "ddcf134d-961c-2d57-6eae-2f3d18a9db9d",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/user/address/2",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "FB642D9CD8AAB92D89FFAEA2D8ACE706",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "realname",
+					"value": "王五三",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "mobile",
+					"value": "13666666666",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "prov",
+					"value": "330000",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "city",
+					"value": "330100",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "address",
+					"value": "打算大苏打打算",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "default",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1435762498181,
+			"name": "编辑地址",
+			"description": "",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"responses": []
+		},
+		{
+			"id": "e15ff617-45e2-16d0-c09a-e47289f85769",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream/social",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "9E0D233F58E1D0887A7105A43344A5A1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "dream_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "type",
+					"value": "like",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "点赞关注",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1436091464186,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e9d05a3b-27ad-7329-bc88-521eb0c215f3",
+			"headers": "",
+			"url": "http://app.mxsj.yunpod.com/api/dream/comment",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "38ff4e82-578a-6ee5-5c7b-7d5c1ef9877b",
+			"data": [
+				{
+					"key": "user_token",
+					"value": "9E0D233F58E1D0887A7105A43344A5A1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "dream_id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "content",
+					"value": "hahaha",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "提交评论",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1436092022986,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

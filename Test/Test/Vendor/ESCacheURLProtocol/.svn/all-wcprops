@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol
+END
+ESCachedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESCachedData.h
+END
+ESCachingURLProtocol.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESCachingURLProtocol.h
+END
+ESHttpCacheManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESHttpCacheManager.m
+END
+ESCachedData.m
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESCachedData.m
+END
+ESCachingURLProtocol.m
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESCachingURLProtocol.m
+END
+NSString+Sha1.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/NSString+Sha1.h
+END
+Reachability.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/Reachability.h
+END
+NSString+Sha1.m
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/NSString+Sha1.m
+END
+Reachability.m
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/Reachability.m
+END
+ESHttpCacheManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/Civil-Platform/!svn/ver/71993/trunk/shipin7/Mobile/ezvizsports/v2.0/IOS/ezvizsports/ezvizsports/Core/VodAPI/ESCacheURLProtocol/ESHttpCacheManager.h
+END

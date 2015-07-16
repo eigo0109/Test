@@ -1,0 +1,265 @@
+//
+//  ESCachingURLProtocol.m
+//  ezvizsports
+//
+//  Created by qiandong on 7/2/15.
+//  Copyright (c) 2015 hikvision. All rights reserved.
+//
+
+#import "ESCachingURLProtocol.h"
+#import "Reachability.h"
+#import "NSString+Sha1.h"
+//#import "InfoRecord.h"
+#import "ESCachedData.h"
+#import "ESHttpCacheManager.h"
+
+#define WORKAROUND_MUTABLE_COPY_LEAK 1
+
+#if WORKAROUND_MUTABLE_COPY_LEAK
+
+@interface NSURLRequest(MutableCopyWorkaround)
+
+- (id) mutableCopyWorkaround;
+
+@end
+#endif
+
+static NSString *ESCachingURLHeader = @"ESCache-Header";
+
+@interface ESCachingURLProtocol ()
+@property (nonatomic, readwrite, strong) NSURLConnection *connection;
+@property (nonatomic, readwrite, strong) NSMutableData *data;
+@property (nonatomic, readwrite, strong) NSURLResponse *response;
+- (void)appendData:(NSData *)newData;
+@end
+
+
+@implementation ESCachingURLProtocol
+@synthesize connection = connection_;
+@synthesize data = data_;
+@synthesize response = response_;
+
++ (void)initialize
+{
+    if (self == [ESCachingURLProtocol class])
+    {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+        });
+    }
+}
+
+
+
+#pragma mark - custom this protocol
+-(NSString *) getCachedKeyFromUrl:(NSString *)urlStr //将request url生成一个cache key。需要根据自己应用去掉一些动态参数，或者其他处理。
+{
+    //因为有commonParms，第一个为clientType，而且url里的参数是按字母排序的。所以，不会有netType在参数最前面这种情况发生。所以不考虑?netType=这种情况
+    NSRange range = [urlStr rangeOfString:@"&netType="]; //去掉&netType=1
+    if (range.length > 0) {
+        urlStr = [urlStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length+1) withString:@""];
+    }
+    
+    range = [urlStr rangeOfString:@"&sessionId="]; //sessionId的值替换为account.cache的sessionId要么值为32字符串，要么没有sessionId整个参数项。
+    if (range.length > 0) {
+        urlStr = [urlStr stringByReplacingCharactersInRange:NSMakeRange(range.location+range.length, 32) withString:@""];
+    }else{
+        urlStr = [urlStr stringByAppendingString:[NSString stringWithFormat:@"&sessionId=%@", @""]]; //如果没有sessionId参数项，就加一个
+    }
+    if ([urlStr hasPrefix:@"https://"]) {
+        urlStr = [urlStr stringByReplacingCharactersInRange:NSMakeRange(0,8) withString:@"http://"];
+    }
+    return [urlStr sha1];
+}
+
+#pragma mark - implement NSURLProtocol
++ (BOOL)canInitWithRequest:(NSURLRequest *)request
+{
+    if ([[NSSet setWithObjects:@"https",@"http",nil] containsObject:[[request URL] scheme]] &&
+        ([request valueForHTTPHeaderField:ESCachingURLHeader] == nil))
+    {
+        if ([[[request URL] absoluteString] hasPrefix:@"http://api.share.mob.com"]) {
+            return NO;
+        }
+        if ([[[request URL] absoluteString] hasPrefix:@"http://alog.umeng.com"]) {
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
+}
+
+
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
+{
+    return request;
+}
+
+- (NSString *)cacheKeyForRequest:(NSURLRequest *)aRequest
+{
+    NSString *queryParams = [[NSString alloc] initWithData:[aRequest HTTPBody] encoding:NSUTF8StringEncoding];
+    NSString *absoluteString = [[aRequest URL] absoluteString];
+    NSString *completeUrl = [NSString stringWithFormat:@"%@?%@",absoluteString,queryParams];
+
+    return [self getCachedKeyFromUrl:completeUrl];
+}
+
+- (void)startLoading
+{
+    if (![self useCache]) {
+        NSMutableURLRequest *connectionRequest =
+#if WORKAROUND_MUTABLE_COPY_LEAK
+        [[self request] mutableCopyWorkaround];
+#else
+        [[self request] mutableCopy];
+#endif
+        // redirect request时，避免canInitWithRequest再次返回YES
+        [connectionRequest setValue:@"" forHTTPHeaderField:ESCachingURLHeader];
+        NSURLConnection *connection = [NSURLConnection connectionWithRequest:connectionRequest
+                                                                    delegate:self];
+        [self setConnection:connection];
+    }
+    else {
+        NSString *key = [self cacheKeyForRequest:[self request]];
+        ESCachedData *cache = [[ESHttpCacheManager sharedManager] getCacheByKey:key];
+        if (cache) {
+            NSData *data = [cache data];
+            NSURLResponse *response = [cache response];
+            NSURLRequest *redirectRequest = [cache redirectRequest];
+            if (redirectRequest) {
+                [[self client] URLProtocol:self wasRedirectedToRequest:redirectRequest redirectResponse:response];
+            } else {
+                
+                [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed]; // 自己缓存，不用系统机制
+                [[self client] URLProtocol:self didLoadData:data];
+                [[self client] URLProtocolDidFinishLoading:self];
+            }
+        }
+        else {
+            [[self client] URLProtocol:self didFailWithError:[NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorCannotConnectToHost userInfo:nil]];
+        }
+    }
+}
+
+- (void)stopLoading
+{
+    [[self connection] cancel];
+}
+
+// NSURLConnection delegates
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response
+{
+    if (response != nil) {
+        NSMutableURLRequest *redirectableRequest =
+#if WORKAROUND_MUTABLE_COPY_LEAK
+        [request mutableCopyWorkaround];
+#else
+        [request mutableCopy];
+#endif
+        [redirectableRequest setValue:nil forHTTPHeaderField:ESCachingURLHeader];
+        
+        if ( [[self response].MIMEType rangeOfString:@"image"].location != NSNotFound  ||
+            [[self response].MIMEType rangeOfString:@"video"].location != NSNotFound  ||
+            [[self response].MIMEType rangeOfString:@"audio"].location != NSNotFound
+            ) {
+            ; //do noting
+        }else{
+            NSString *key = [self cacheKeyForRequest:[self request]];
+            ESCachedData *cache = [ESCachedData new];
+            [cache setResponse:[self response]];
+            [cache setData:[self data]];
+            [cache setKey:key];
+            [cache setRedirectRequest:redirectableRequest];
+            
+            [[ESHttpCacheManager sharedManager] limitInsert:cache];
+        }
+        
+        [[self client] URLProtocol:self wasRedirectedToRequest:redirectableRequest redirectResponse:response];
+        return redirectableRequest;
+    } else {
+        return request;
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [[self client] URLProtocol:self didLoadData:data];
+    [self appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [[self client] URLProtocol:self didFailWithError:error];
+    [self setConnection:nil];
+    [self setData:nil];
+    [self setResponse:nil];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [self setResponse:response];
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];  // 自己缓存，不用系统机制
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [[self client] URLProtocolDidFinishLoading:self];
+    
+    if ( [[self response].MIMEType rangeOfString:@"image"].location != NSNotFound  ||
+         [[self response].MIMEType rangeOfString:@"video"].location != NSNotFound  ||
+         [[self response].MIMEType rangeOfString:@"audio"].location != NSNotFound
+        ) {
+        ; //do noting
+    }else{
+        NSString *key = [self cacheKeyForRequest:[self request]];
+        ESCachedData *cache = [ESCachedData new];
+        [cache setResponse:[self response]];
+        [cache setData:[self data]];
+        [cache setKey:key];
+        
+        [[ESHttpCacheManager sharedManager] limitInsert:cache];
+    }
+    
+    [self setConnection:nil];
+    [self setData:nil];
+    [self setResponse:nil];
+}
+
+- (BOOL) useCache 
+{
+    BOOL reachable = (BOOL) [[Reachability reachabilityWithHostName:[[[self request] URL] host]] currentReachabilityStatus] != NotReachable;
+    return !reachable;
+}
+
+- (void)appendData:(NSData *)newData
+{
+    if ([self data] == nil) {
+        [self setData:[newData mutableCopy]];
+    }
+    else {
+        [[self data] appendData:newData];
+    }
+}
+
+@end
+
+#if WORKAROUND_MUTABLE_COPY_LEAK
+@implementation NSURLRequest(MutableCopyWorkaround)
+
+- (id) mutableCopyWorkaround {
+    NSMutableURLRequest *mutableURLRequest = [[NSMutableURLRequest alloc] initWithURL:[self URL]
+                                                                          cachePolicy:[self cachePolicy]
+                                                                      timeoutInterval:[self timeoutInterval]];
+    [mutableURLRequest setAllHTTPHeaderFields:[self allHTTPHeaderFields]];
+    if ([self HTTPBodyStream]) {
+        [mutableURLRequest setHTTPBodyStream:[self HTTPBodyStream]];
+    } else {
+        [mutableURLRequest setHTTPBody:[self HTTPBody]];
+    }
+    [mutableURLRequest setHTTPMethod:[self HTTPMethod]];
+    
+    return mutableURLRequest;
+}
+
+@end
+#endif

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-wc-Mf1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypR-Q4-fH4">
+                    <rect key="frame" x="102" y="476.5" width="170" height="48"/>
+                    <state key="normal" backgroundImage="launch_btn">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="launch:" destination="-1" eventType="touchUpInside" id="Ywm-yC-7Wc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ypR-Q4-fH4" firstAttribute="centerX" secondItem="aFr-wc-Mf1" secondAttribute="centerX" constant="61.5" id="BWh-Aj-F90"/>
+                <constraint firstItem="aFr-wc-Mf1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ch0-sr-MBX"/>
+                <constraint firstItem="ypR-Q4-fH4" firstAttribute="centerX" secondItem="aFr-wc-Mf1" secondAttribute="centerX" id="HNp-V6-uql"/>
+                <constraint firstItem="ypR-Q4-fH4" firstAttribute="top" secondItem="aFr-wc-Mf1" secondAttribute="bottom" constant="-259" id="I9R-6w-Ev8"/>
+                <constraint firstItem="aFr-wc-Mf1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TaW-H3-jOW"/>
+                <constraint firstAttribute="bottom" secondItem="aFr-wc-Mf1" secondAttribute="bottom" id="ZPR-Pq-0VX"/>
+                <constraint firstAttribute="centerY" secondItem="ypR-Q4-fH4" secondAttribute="centerY" multiplier="2:3" id="g74-3U-yKu"/>
+                <constraint firstAttribute="trailing" secondItem="aFr-wc-Mf1" secondAttribute="trailing" id="kg5-48-8T2"/>
+                <constraint firstItem="ypR-Q4-fH4" firstAttribute="centerY" secondItem="aFr-wc-Mf1" secondAttribute="centerY" constant="98.5" id="oMG-jn-BE4"/>
+                <constraint firstItem="ypR-Q4-fH4" firstAttribute="centerY" secondItem="aFr-wc-Mf1" secondAttribute="centerY" constant="230.5" id="yma-3C-vlW"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="BWh-Aj-F90"/>
+                    <exclude reference="I9R-6w-Ev8"/>
+                    <exclude reference="oMG-jn-BE4"/>
+                    <exclude reference="yma-3C-vlW"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="launch" width="375" height="618"/>
+        <image name="launch_btn" width="170" height="48"/>
+    </resources>
+</document>
