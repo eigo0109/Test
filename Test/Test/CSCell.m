@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self.contentView setBackgroundColor:[UIColor lightGrayColor]];
         _textLabel = [[UILabel alloc] initWithFrame:self.contentView.bounds];
         [_textLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview: _textLabel];

@@ -10,29 +10,29 @@
 	<string>Test</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6AEBEDA47714716E396316FDEDCB0724800CBB4B</key>
+		<key>536DA41D23F535BCB1406D2B73ABE909AB1603BB</key>
 		<string>https://github.com/eigo0109/Test.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Test.xcodeproj</string>
+	<string>Test/Test.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6AEBEDA47714716E396316FDEDCB0724800CBB4B</key>
-		<string>../..</string>
+		<key>536DA41D23F535BCB1406D2B73ABE909AB1603BB</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/eigo0109/Test.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6AEBEDA47714716E396316FDEDCB0724800CBB4B</string>
+	<string>536DA41D23F535BCB1406D2B73ABE909AB1603BB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6AEBEDA47714716E396316FDEDCB0724800CBB4B</string>
+			<string>536DA41D23F535BCB1406D2B73ABE909AB1603BB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Test</string>
 		</dict>
